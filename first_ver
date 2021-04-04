@@ -1,0 +1,41 @@
+def VigenereCiphre(line, key):
+    # функция шифрования текста методом Виженера используя список "encode_line"
+    isupper = True
+    key = key.upper()
+    key = key.strip(' ')
+    key_lst = list(key)
+    encoded_line = []
+    i = 0
+    for char in list(line):
+        if ord(char) < 65 or ord(char) > 122:  # юникод английских букв
+            encoded_line.append(char)
+
+        elif 90 < ord(char) < 97:
+            encoded_line.append(char)
+
+        else:
+            if ord(char) > 90:
+                isupper = False
+                char = char.upper()
+            else:
+                isupper = True
+
+            if i == len(key_lst):
+                i = 0
+
+            c = ord(char) + ord(key_lst[i]) - 65
+            if c > 90:
+                c = c - 25
+
+            if isupper == False:
+                c = c + 32
+
+            encoded_line.append(chr(c))
+            i += 1
+    a = ''
+    return a.join(encoded_line)
+
+
+text = input("Введите текст для зашифровки: ")
+key = input("Введите ключ шифра (любое слово или набор символов): ")
+print(VigenereCiphre(text, key))
