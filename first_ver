@@ -1,5 +1,5 @@
 def VigenereCiphre(line, key):
-    # функция шифрования текста методом Виженера используя список "encode_line"
+    # функция шифрования английского текста методом Виженера используя список "encode_line"
     isupper = True
     key = key.upper()
     key = key.strip(' ')
