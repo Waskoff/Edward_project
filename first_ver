@@ -36,6 +36,6 @@ def VigenereCiphre(line, key):
     return a.join(encoded_line)
 
 
-text = input("Введите текст для зашифровки: ")
+text = input("Введите сообщение для зашифровки: ")
 key = input("Введите ключ шифра (любое слово или набор символов): ")
-print(VigenereCiphre(text, key))
+print('Зашифрованное сообщение: ', VigenereCiphre(text, key))
